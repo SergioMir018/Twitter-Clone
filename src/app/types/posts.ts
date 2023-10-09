@@ -1,8 +1,11 @@
-import { type Database } from '@/app/types/database'
-
-type PostEntity = Database['public']['Tables']['posts']['Row']
-type UserEntity = Database['public']['Tables']['users']['Row']
-
-export type Post = PostEntity & {
-  user: UserEntity
-}
+export type Post = Array<{
+  content: string
+  created_at: string
+  id: string
+  user_id: string
+  user: {
+    name: string | null
+    avatar_url: string | null
+    username: string | null
+  } | null
+}> | null

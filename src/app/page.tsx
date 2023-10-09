@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 import AuthButtonServer from '@/app/components/auth-button/auth-button-sever'
-import PostsLlist from './components/posts-list/posts-list'
+import PostsList from './components/posts-list/posts-list'
 import { type Database } from './types/database'
 import ComposePost from './components/compose-post/compose-post'
 
@@ -24,7 +24,7 @@ export default async function Home () {
     <main className="flex min-h-screen flex-col items-center gap-5">
       <section className='max-w-[600px] w-full max-x-auto border-l border-r border-white/20 min-h-screen'>
       <ComposePost avatarUrl={session.user?.user_metadata?.avatar_url} />
-      <PostsLlist posts={posts} />
+      <PostsList posts={posts} />
       </section>
       <AuthButtonServer />
     </main>

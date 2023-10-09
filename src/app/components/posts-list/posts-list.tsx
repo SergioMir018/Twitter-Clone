@@ -1,7 +1,7 @@
 import PostCard from '@/app/components/post-card/post-card'
 import { type Post } from '@/app/types/posts'
 
-export default function PostsLlist ({ posts }: { posts: Post[] }) {
+export default function PostsList ({ posts }: { posts: Post }) {
   return (
     <div>
       {
@@ -12,10 +12,12 @@ export default function PostsLlist ({ posts }: { posts: Post[] }) {
             content
           } = post
 
+          if (user === null) return null
+
           const {
-            username,
             name,
-            avatar_url: avatarUrl
+            avatar_url: avatarUrl,
+            username
           } = user
 
           return (
